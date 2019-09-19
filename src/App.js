@@ -23,6 +23,7 @@ class App extends Component{
         grid : initialValueOfGrid,
         counter: this.state.counter+1
       })
+      console.log(this.state.grid);
     }
 
     else if(this.state.counter%2 !== 0) {
