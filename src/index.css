@@ -32,3 +32,8 @@ code {
   text-align: center;
 }
 
+.style-winner-text {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}

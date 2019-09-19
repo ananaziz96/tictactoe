@@ -6,12 +6,15 @@ class App extends Component{
   constructor(props) { 
     super(props)
     this.state = {
-    	grid: [["","",""],
-      				["","",""],
-      				["","",""]],
+      grid: 
+      [["","",""],
+      ["","",""],
+      ["","",""]],
       counter: 0,
+      hasWinner: false
     }
     this.showSign = this.showSign.bind(this);
+    this.gameReset = this.gameReset.bind(this);
   }
   
   showSign(a,b) {
@@ -50,14 +53,29 @@ class App extends Component{
       this.checkRowForSolution(this.state.grid[0][0]+ this.state.grid[1][1]+ this.state.grid[2][2]) ||
       this.checkRowForSolution(this.state.grid[0][2]+ this.state.grid[1][1]+ this.state.grid[2][0])    
     ) {
-    	return alert("Winner!");
+      this.setState({hasWinner: true})
     } 
   }
   
   checkRowForSolution(line){
-  	if(line=== "XXX" || line==="OOO") {
-    	return true;
-    }  	
+    return line=== "XXX" || line==="OOO"
+  }
+
+  gameReset(){
+    this.setState({
+      grid:
+        [["","",""],
+        ["","",""],
+        ["","",""]] ,
+      hasWinner: false
+    })
+  }
+
+  displayWinner(){
+    if(this.state.hasWinner) {
+      return <div className="style-winner-text">WINNER</div>
+
+    }
   }
   
   render() {
@@ -85,6 +103,15 @@ class App extends Component{
          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(2,1)}>{this.state.grid[2][1]}</div>
          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(2,2)}>{this.state.grid[2][2]}</div>
         </div>
+
+        {this.displayWinner()}
+
+        <button 
+          className="btn-primary"
+          onClick={this.gameReset}
+        >
+          Reset
+        </button>
       </div>
     )
   }
