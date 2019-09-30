@@ -12,12 +12,18 @@ code {
     monospace;
 }
 
+.tictactoe-board {
+  margin-left: 20px;
+}
+
 .container1 {
   display: flex;
+  
 }
 
 .container2 {
   display: flex;
+  
 }
 
 .container3 {
@@ -30,6 +36,7 @@ code {
   width: 100px;
   flex-direction: row;
   text-align: center;
+  text-shadow: none;
 }
 
 .style-winner-text {

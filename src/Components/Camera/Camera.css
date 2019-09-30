@@ -1,0 +1,14 @@
+.camera-container {
+        border: 1px solid black;
+        height: 300px;
+        width: 300px;
+        text-align: center;
+}
+
+.adjacent-container {
+    display: flex;
+}
+
+.seperate-box {
+    margin-right: 20px;
+}

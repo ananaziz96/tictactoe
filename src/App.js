@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./index.css"
+import Camera from "./Components/Camera/Camera"
 
 class App extends Component{
 
@@ -11,7 +12,8 @@ class App extends Component{
       ["","",""],
       ["","",""]],
       counter: 0,
-      hasWinner: false
+      hasWinner: false,
+      boxColor: "",
     }
     this.showSign = this.showSign.bind(this);
     this.gameReset = this.gameReset.bind(this);
@@ -73,45 +75,55 @@ class App extends Component{
 
   displayWinner(){
     if(this.state.hasWinner) {
-      return <div className="style-winner-text">WINNER</div>
+      return <div className="style-winner-text">WINNER!</div>
 
     }
   }
   
   render() {
     return ( 
-    	<div>
-      
-        <div>Hello, let's play a game of tic-tac-toe</div>
-        <br />
+    	<div className="tictactoe-board">
+        <h1>Hello, let's play a game of tic-tac-toe</h1>
     
+        <Camera />
+
+        
     
-        <div  className='container1'>
-         <div className="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() => this.showSign(0,0)}>{this.state.grid[0][0]}</div>
-         <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(0,1)}>{this.state.grid[0][1]}</div>
-         <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(0,2)}>{this.state.grid[0][2]}</div>
-        </div>
-      
-        <div className="container2">
-         <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(1,0)}>{this.state.grid[1][0]}</div>
-         <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(1,1)}>{this.state.grid[1][1]}</div>
-         <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(1,2)}>{this.state.grid[1][2]}</div>
-        </div>
-      
-        <div className="container3">
-         <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(2,0)}>{this.state.grid[2][0]}</div>
-         <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(2,1)}>{this.state.grid[2][1]}</div>
-         <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(2,2)}>{this.state.grid[2][2]}</div>
-        </div>
+          <h4>TicTacToe Board:</h4>
 
-        {this.displayWinner()}
+          <div  className='container1'>
+          <div className="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() => this.showSign(0,0)}>{this.state.grid[0][0]}</div>
+          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(0,1)}>{this.state.grid[0][1]}</div>
+          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(0,2)}>{this.state.grid[0][2]}</div>
+          </div>
+        
+          <div className="container2">
+          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(1,0)}>{this.state.grid[1][0]}</div>
+          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(1,1)}>{this.state.grid[1][1]}</div>
+          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(1,2)}>{this.state.grid[1][2]}</div>
+          </div>
+        
+          <div className="container3">
+          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(2,0)}>{this.state.grid[2][0]}</div>
+          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(2,1)}>{this.state.grid[2][1]}</div>
+          <div className ="boxes" style={{ backgroundColor: this.state.boxColor }} onClick= {() =>this.showSign(2,2)}>{this.state.grid[2][2]}</div>
+          </div>
 
-        <button 
-          className="btn-primary"
-          onClick={this.gameReset}
-        >
-          Reset
-        </button>
+          {this.displayWinner()}
+
+          <br />
+
+          <button 
+            className="btn-primary"
+            onClick={this.gameReset}
+          >
+            Reset
+          </button>
+          
+          {/* Replace with footer */}
+          <br />
+          <br />
+          <br />
       </div>
     )
   }
