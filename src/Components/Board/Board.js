@@ -9,9 +9,7 @@ class App extends Component {
       grid: [["", "", ""], ["", "", ""], ["", "", ""]],
       counter: 0,
       hasWinner: false,
-      boxColor: "",
-      playerPicture1: null,
-      playerPicture2: null
+      boxColor: ""
     };
     this.showSign = this.showSign.bind(this);
     this.gameReset = this.gameReset.bind(this);
@@ -87,12 +85,7 @@ class App extends Component {
       <div className="tictactoe-board">
         <h1>Hello, let's play a game of tic-tac-toe</h1>
 
-        <Camera
-          setPlayer1Canvas={whatever => {
-            this.setState({ playerPicture1: whatever });
-            console.log(whatever, "whatever whata");
-          }}
-        />
+        <Camera />
 
         <h4>TicTacToe Board:</h4>
 
